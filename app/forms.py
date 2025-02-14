@@ -13,7 +13,11 @@ class TemplateForm(forms.Form):
     ))
     # widget тоже нужен только для отображения в HTML
     my_textarea = forms.CharField(widget=forms.Textarea)
-
+    my_email = forms.EmailField()
+    my_pass=  forms.CharField(widget=forms.PasswordInput)
+    my_date = forms.DateField()
+    my_int = forms.IntegerField()
+    my_check = forms.BooleanField()
     # TODO Опишите поля (поле для email, пароля, даты, целого числа, переключателя) и их параметры для вашего шаблона формы
 
 
@@ -51,3 +55,15 @@ class TemplateForm(forms.Form):
 * forms.RegexField(regex='[А-яA-z]+') - <input type="text"> (с дополнительной валидацией на стороне сервера для соответствия регулярному выражению)
 * forms.UUIDField() - <input type="text"> (для ввода UUID)
 """
+
+class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(widget=forms.EmailInput)
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data["email"]
+        if commit:
+            user.save()
+            if hasattr(self, "save_m2m"):
+                self.save_m2m()
+        return user
