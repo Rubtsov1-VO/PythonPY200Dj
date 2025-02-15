@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" class="ie_11_scroll">
     <head>
         <meta charset="utf-8">
@@ -13,9 +14,9 @@ http://www.templatemo.com/tm-474-app-landing
 
 -->
         <!-- CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/templatemo_style.css">
+        <link rel="stylesheet" href="{% static 'landing/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'landing/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'landing/css/templatemo_style.css' %}">
         <!-- Favicon and touch icons -->
         <link rel="shortcut icon" href="favicon.png" />
         <!--[if lt IE 9]>
@@ -31,6 +32,7 @@ http://www.templatemo.com/tm-474-app-landing
         </div>
         <form action="", method="post">
             {% csrf_token %}
+
         <nav class="main-menu shadow-top-down">
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="#templatemo_home" class="scroll_effect">Home</a></li>
@@ -140,7 +142,7 @@ http://www.templatemo.com/tm-474-app-landing
                     <p>Over 15 millions user on Google play store</p>
                 </div>
                 <div class="col-xs-12">
-                    <a href="#" class="shadow-top-down"><img src="images/download_btn.png"/></a>
+                    <a href="#" class="shadow-top-down"><img src="{% static 'images/download_btn.png' %}"/></a>
                 </div>
             </div>
         </section>
@@ -207,11 +209,11 @@ http://www.templatemo.com/tm-474-app-landing
             </div>
         </footer>
         <!-- require plugins -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.parallax.js"></script>
+        <script src="{% static 'landing/js/jquery.min.js' %}"></script>
+        <script src="{% static 'landing/js/jquery-ui.min.js' %}"></script>
+        <script src="{% static 'landing/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'landing/js/jquery.parallax.js' %}"></script>
         <!-- template mo config script -->
-        <script src="js/templatemo_scripts.js"></script>
+        <script src="{% static 'landing/js/templatemo_scripts.js' %}"></script>
     </body>
 </html>
